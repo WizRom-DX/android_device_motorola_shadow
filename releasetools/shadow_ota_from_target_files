@@ -346,7 +346,9 @@ def WriteFullOTAPackage(input_zip, output_zip):
 #    ts = GetBuildProp("ro.build.date.utc", input_zip)
 #    script.AssertOlderBuild(ts)
 
-  script.AssertKernelVersion()
+# Remove kernel check... for now
+#  script.AssertKernelVersion()
+
 #  AppendAssertions(script, input_zip)
 #  device_specific.FullOTA_Assertions()
   if OPTIONS.backuptool:
