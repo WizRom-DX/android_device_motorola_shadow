@@ -220,6 +220,11 @@ on boot
 # Enable panic on softlockup
     write /proc/sys/kernel/softlockup_panic 1
 
+#fix for torch
+    chmod 0666 /sys/class/leds/spotlight/brightness
+    chmod 0666 /sys/class/leds/torch-flash/brightness
+    chmod 0666 /sys/class/leds/torch-flash/flash_light
+
 # Load traffic shaping modules
     insmod /system/lib/modules/ifb.ko
     insmod /system/lib/modules/act_mirred.ko
