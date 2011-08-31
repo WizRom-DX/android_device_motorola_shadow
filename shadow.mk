@@ -122,7 +122,7 @@ PRODUCT_PACKAGES += \
     sensors.shadow \
     lights.shadow \
     libaudiopolicy \
-    MotoUsb-D2
+    Usb
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
