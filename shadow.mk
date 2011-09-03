@@ -76,7 +76,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.mot.hw.uaprof=http://uaprof.motorola.com/phoneconfig/MotoMB200/profile/MotoMB200.rdf \
     ro.build.version.full=Blur_Version.2.3.340.MB810.Verizon.en.US \
     ro.build.config.version=GAS_NA_GCXSHAD00VZW_P022 \
-    ro.build.config.date=Sun_Nov_07_23:40:30_-0600_2010
+    ro.build.config.date=Sun_Nov_07_23:40:30_-0600_2010 \
+    ro.kernel.android.checkjni=0
 #############################################################
 #    debug.mot.extwmlog=1 \
 #    debug.mot.extamlog=1 \
