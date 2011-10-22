@@ -345,6 +345,14 @@ def WriteFullOTAPackage(input_zip, output_zip):
 #  if not OPTIONS.omit_prereq:
 #    ts = GetBuildProp("ro.build.date.utc", input_zip)
 #    script.AssertOlderBuild(ts)
+  script.Print("  ")
+  script.Print("  ____  _        _ _______  _    _____ ____  ")
+  script.Print(" /   _\/ \__/|\ / |  _ \  \//   /  __//  __\ ")
+  script.Print(" |  /  | |\/||_\| | | \|\  /____| |  _| | // ")
+  script.Print(" |  \__| |  ||  | | |_/|/   \___\ |_//| |_|\ ")
+  script.Print(" \____/\_/  \|  \_|____/__/ \   \____\/____/ ")
+  script.Print(" A RevNumbers Kang")
+  script.Print("  ")
 
 # Remove kernel check... for now
 #  script.AssertKernelVersion()
@@ -361,13 +369,24 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   CopyUtilityFiles(input_zip, output_zip)
 
+  script.Print(" Formatting /system... ")
   script.RunFormatAndTuneSystem()
-  script.Mount("/system")
-  script.UnpackPackageDir("system", "/system")
 
+  script.Print("  ")
+  script.Print(" Mounting /system... ")
+  script.Mount("/system")
+  
+  script.Print("  ")
+  script.Print(" Installing /system... ")
+  script.UnpackPackageDir("system", "/system")
   symlinks = CopySystemFiles(input_zip, output_zip)
+
+  script.Print("  ")
+  script.Print(" Creating Symlinks... ")
   script.MakeSymlinks(symlinks)
 
+  script.Print("  ")
+  script.Print(" Setting Permissions... ")
   Item.GetMetadata(input_zip)
   Item.Get("system").SetPermissions(script)
 
@@ -380,7 +399,9 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.RunChkKineto()
 
   script.RunVerifyCachePartitionSize()
-
+  
+  script.Print("  ")
+  script.Print(" Finishing Installation... ")
   script.Mount("/data")
   script.RunFinalReleaseUtils()
 
