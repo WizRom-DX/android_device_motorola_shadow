@@ -61,7 +61,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
     ro.cdma.data_retry_config=default_randomization=2000,0,0,120000,180000,540000,960000 \
     ro.com.motorola.smartsensor=true \
-    ro.media.sensor.orient=90 \
+    ro.media.camcorder.720p=3gp,m4v,30,10000000,aac,96000,44100,2 \
+    ro.media.camcorder.d1NTSC=3gp,h264,30,6000000,aac,96000,44100,2 \
+    ro.media.camcorder.vga=3gp,h264,30,4000000,aac,96000,44100,2 \
+    ro.media.camcorder.cif=3gp,h264,30,1500000,aac,96000,44100,2 \
+    ro.media.camcorder.qvga=3gp,h264,15,500000,aac,32000,16000,2 \
+    ro.media.camcorder.mms=3gp,h264,15,128000,amrnb,12200,8000,1 \
     ro.media.capture.maxres=8m \
     ro.media.capture.fast.fps=4 \
     ro.media.capture.slow.fps=60 \
@@ -73,6 +78,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.media.camera.skew=0.0 \
     ro.media.camera.distortion=0.0,0.0,0.0,0.0,0.0 \
     ro.media.camera.calresolution=3264,2448 \
+    ro.media.capture.shuttertone=1 \
+    ro.media.capture.torchIntensity=50 \
+    ro.media.sensor.orient=90 \
+    ro.media.panorama.defres=2048x1536 \
+    ro.media.panorama.frameres=1280x720 \
+    ro.media.capture.prevfps=28 \
     ro.mot.hw.uaprof=http://uaprof.motorola.com/phoneconfig/MotoMB200/profile/MotoMB200.rdf \
     ro.build.version.full=Blur_Version.2.3.340.MB810.Verizon.en.US \
     ro.build.config.version=GAS_NA_GCXSHAD00VZW_P022 \
@@ -97,7 +108,8 @@ PRODUCT_COPY_FILES += \
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/motorola/shadow/media_profiles.xml:system/etc/media_profiles.xml
+    device/motorola/shadow/media_profiles.xml:system/etc/media_profiles.xml \
+    device/motorola/shadow/01_Vendor_ti_omx.cfg:system/etc/01_Vendor_ti_omx.cfg
 
 PRODUCT_PACKAGES += \
     librs_jni \
