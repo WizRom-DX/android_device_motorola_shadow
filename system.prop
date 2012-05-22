@@ -9,7 +9,7 @@ ro.default_usb_mode=4
 ro.usb.use_custom_service=1
 #Use 1% battery increments
 #currently doesn't work with GB kernel
-#ro.product.use_charge_counter=1
+ro.product.use_charge_counter=1
 
 # BEGIN Motorola, a18772, 05/19/2010, IKSHADOW-5584
 # Add 411 to DAN List for VZW.
@@ -152,4 +152,5 @@ ro.mot.fid.29967.ice=true
 # true  enable the feature of 33531
 # false disable the feature
 ro.mot.fid.33531.keylock_ecm=true
+
 #END

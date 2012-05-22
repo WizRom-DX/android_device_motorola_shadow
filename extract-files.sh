@@ -173,8 +173,8 @@ adb pull /system/lib/libmtpstack.so ../../../vendor/motorola/$DEVICE/proprietary
 adb pull /system/lib/libnativedrm1.so ../../../vendor/motorola/$DEVICE/proprietary/lib
 adb pull /system/lib/liboemcamera.so ../../../vendor/motorola/$DEVICE/proprietary/lib
 adb pull /system/lib/libomx_arcomxcore_sharedlibrary.so ../../../vendor/motorola/$DEVICE/proprietary/lib
-adb pull /system/lib/libomx_qcelpdec_sharedlibrary.so ../../../vendor/motorola/$DEVICE/proprietary/lib
-adb pull /system/lib/libomx_qcelpenc_sharedlibrary.so ../../../vendor/motorola/$DEVICE/proprietary/lib
+adb pull /system/lib/libarcomx_qcelpdec_sharedlibrary.so ../../../vendor/motorola/$DEVICE/proprietary/lib
+adb pull /system/lib/libarcomx_qcelpenc_sharedlibrary.so ../../../vendor/motorola/$DEVICE/proprietary/lib
 adb pull /system/lib/libpanorama.so ../../../vendor/motorola/$DEVICE/proprietary/lib
 adb pull /system/lib/libpanorama_jni.so ../../../vendor/motorola/$DEVICE/proprietary/lib
 adb pull /system/lib/libpkip.so ../../../vendor/motorola/$DEVICE/proprietary/lib
@@ -392,6 +392,8 @@ PRODUCT_COPY_FILES += \\
     vendor/motorola/__DEVICE__/proprietary/lib/libnativedrm1.so:/system/lib/libnativedrm1.so \\
     vendor/motorola/__DEVICE__/proprietary/lib/liboemcamera.so:/system/lib/liboemcamera.so \\
     vendor/motorola/__DEVICE__/proprietary/lib/libomx_arcomxcore_sharedlibrary.so:/system/lib/libomx_arcomxcore_sharedlibrary.so \\
+    vendor/motorola/__DEVICE__/proprietary/lib/libarcomx_qcelpdec_sharedlibrary.so:/system/lib/libarcomx_qcelpdec_sharedlibrary.so \\
+    vendor/motorola/__DEVICE__/proprietary/lib/libarcomx_qcelpenc_sharedlibrary.so:/system/lib/libarcomx_qcelpenc_sharedlibrary.so \\
     vendor/motorola/__DEVICE__/proprietary/lib/libpanorama.so:/system/lib/libpanorama.so \\
     vendor/motorola/__DEVICE__/proprietary/lib/libpanorama_jni.so:/system/lib/libpanorama_jni.so \\
     vendor/motorola/__DEVICE__/proprietary/lib/libpkip.so:/system/lib/libpkip.so \\

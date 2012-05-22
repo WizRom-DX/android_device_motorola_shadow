@@ -345,28 +345,28 @@ def WriteFullOTAPackage(input_zip, output_zip):
 #  if not OPTIONS.omit_prereq:
 #    ts = GetBuildProp("ro.build.date.utc", input_zip)
 #    script.AssertOlderBuild(ts)
-  script.Print("                            ");
-  script.Print("                            ");
-  script.Print("                            ");
-  script.Print("  *******************************************");
-  script.Print("  *******************************************");
-  script.Print("  ***        SuperMiui - 2012.5.21        ***");
-  script.Print("  ***            by Wizard0f0s            ***");
-  script.Print("  *******************************************");
-  script.Print("  *******************************************");
-  script.Print("  ***                                     ***");
-  script.Print("  ***    Based on CM7 for the Droid X     ***");
-  script.Print("  ***    Includes Miui and Blur smali     ***");
-  script.Print("  ***      ported to source code          ***");
-  script.Print("  ***                                     ***");
-  script.Print("  ***    Github -                         ***");
-  script.Print("  ***      http://github.com/WizRom-DX    ***");
-  script.Print("  ***                                     ***");
-  script.Print("  *******************************************");
-  script.Print("  *******************************************");
-  script.Print("                            ");
-  script.Print("Let us begin...             ");
-  script.Print("");
+ui_print("                            ");
+ui_print("                            ");
+ui_print("                            ");
+ui_print("  *******************************************");
+ui_print("  *******************************************");
+ui_print("  ***        SuperMiui - 2012.5.21        ***");
+ui_print("  ***            by Wizard0f0s            ***");
+ui_print("  *******************************************");
+ui_print("  *******************************************");
+#ui_print("  ***                                     ***");
+#ui_print("  ***    Based on CM7 for the Droid X     ***");
+#ui_print("  ***    Includes Miui and Blur smali     ***");
+#ui_print("  ***      ported to source code          ***");
+#ui_print("  ***                                     ***");
+#ui_print("  ***    Github -                         ***");
+#ui_print("  ***      http://github.com/WizRom-DX    ***");
+#ui_print("  ***                                     ***");
+#ui_print("  *******************************************");
+#ui_print("  *******************************************");
+#ui_print("                            ");
+#ui_print("Let us begin...             ");
+#ui_print("");
 
 # Remove kernel check... for now
 #  script.AssertKernelVersion()

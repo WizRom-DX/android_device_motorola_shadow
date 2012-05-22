@@ -122,11 +122,11 @@ on post-fs
     chmod 2770 /data/tpapi/etc
     chmod 2770 /data/tpapi/etc/tpa
     chmod 2770 /data/tpapi/etc/tpa/persistent
-    chown system system /pds/security
-    chown system system /data/tpapi
-    chown system system /data/tpapi/etc
-    chown system system /data/tpapi/etc/tpa
-    chown system system /data/tpapi/etc/tpa/persistent
+    chown mot_tpapi mot_tpapi /pds/security
+    chown mot_tpapi mot_tpapi /data/tpapi
+    chown mot_tpapi mot_tpapi /data/tpapi/etc
+    chown mot_tpapi mot_tpapi /data/tpapi/etc/tpa
+    chown mot_tpapi mot_tpapi /data/tpapi/etc/tpa/persistent
 
     # directory for encryption management tool, enc_mgt_tool
     mkdir /data/emt
@@ -138,6 +138,16 @@ on post-fs
     # Temp workaround for HP library cleanup
     symlink /dev/hp3a-omap /dev/hp3A-omap
 
+   chmod 0770 /dev/hp3a-omap
+   chmod 0770 /dev/hplens-omap
+   chmod 0770 /dev/video0
+   chmod 0770 /dev/video1
+   chmod 0770 /dev/video2
+   chown media camera /dev/hp3a-omap
+   chown media camera /dev/hplens-omap
+   chown media camera /dev/video0
+   chown media graphics /dev/video1
+   chown media graphics /dev/video2
     mount rootfs rootfs / ro remount
 
 # Install kernel modules
@@ -216,6 +226,8 @@ on boot
     chown system system /sys/class/leds/adp8870-led7/brightness
     chmod 0660 /sys/class/backlight/lm3532_bl/brightness
     chown system system /sys/class/backlight/lm3532_bl/brightness
+    chmod 0660 /dev/hplens-omap
+    chown media camera /dev/hplens-omap
 
 # Enable panic on softlockup
     write /proc/sys/kernel/softlockup_panic 1
@@ -240,12 +252,14 @@ on boot
 # Set core max size (2G)
     setrlimit 4 2147483648 2147483648
 
-# The properties introduced by moto
+# Charge only mode service
+    exec /system/bin/mot_boot_mode
 on property:sys.chargeonly.mode=1
     start battd
     start console
     write /data/chargeonlymode charging
     exec /system/bin/charge_only_mode
+    exec /system/bin/stop zygote
 
 # Moto safe power down
 on property:sys.reboot=1
@@ -287,9 +301,9 @@ service usbd /system/bin/usbd
     group system
 
 service battd /system/bin/battd
-    socket battdsock stream 0660 root mount
+    socket battdsock stream 0660 mot_accy mot_accy
     user root
-    group system mount
+    group mot_accy mot_pwric
     oneshot
 
 service catcommands /system/bin/catcommands
@@ -348,13 +362,16 @@ service map /system/bin/sdptool add --channel=20 --network=2 MAP
     oneshot
 
 service tcmd /system/bin/tcmd
-    group radio input system log camera graphics sdcard_rw audio inet bluetooth wifi compass net_bt_admin mount net_raw net_admin
-    socket local_tcmd stream 0660 system system
-    socket batch_socket stream 0600 system system
+#    group radio input system log camera graphics sdcard_rw audio inet bluetooth wifi compass net_bt_admin mount net_raw net_admin
+#    socket local_tcmd stream 0660 system system
+#    socket batch_socket stream 0600 system system
+    group mot_tcmd radio mot_pwric input system log camera graphics mot_accy sdcard_rw audio inet bluetooth wifi compass net_bt_admin mot_tombstone mot_tpapi mount net_raw net_admin
+    socket local_tcmd stream 0660 mot_tcmd mot_tcmd
+    socket batch_socket stream 0600 mot_tcmd mot_tcmd
     oneshot
 
 service tcmdhelp /system/bin/tcmdhelp
-    socket tcmdhelp stream 0600 system system
+    socket tcmdhelp stream 0600 mot_tcmd mot_tcmd
     oneshot
     disabled
 

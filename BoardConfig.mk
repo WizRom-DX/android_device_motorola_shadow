@@ -96,6 +96,9 @@ TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/motorola/shadow/releasetools
 
 #BOARD_HIJACK_LOG_ENABLE := true
 
+# Override cyanogen squisher to customize our update zip package
+TARGET_CUSTOM_RELEASETOOL := ./device/motorola/shadow/releasetools/squisher
+
 # shadow requires the common boot hijack
 TARGET_NEEDS_MOTOROLA_HIJACK := true
 
